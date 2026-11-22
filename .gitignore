@@ -1,0 +1,17 @@
+# Local/generated files
+__pycache__/
+*.pyc
+*.aux
+*.log
+*.out
+*.synctex.gz
+# Data intentionally excluded
+*.csv
+*.parquet
+*.zip
+*.db
+raw_data_all.csv
+# Local environments and secrets
+.venv/
+.env
+.env.*
