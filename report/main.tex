@@ -34,18 +34,21 @@
   \foreach \x/\y in {1.25/-1.25,-1.25/-1.25,-1.25/1.25,1.25/1.25}{\fill[ptitblue] ([xshift=\x cm,yshift=\y cm]current page.north west) circle (2pt);}
 \end{tikzpicture}
 \centering
-\vspace*{\fill}
-{\Large\bfseries HỌC VIỆN CÔNG NGHỆ\\BƯU CHÍNH VIỄN THÔNG}\\[.3cm]
+\vspace*{1.15cm}
+\begin{minipage}{\textwidth}\centering
+{\Large\bfseries HỌC VIỆN CÔNG NGHỆ}\\[-.12cm]
+{\Large\bfseries BƯU CHÍNH VIỄN THÔNG}\\[.3cm]
 {\large KHOA TÀI CHÍNH KẾ TOÁN 1}\\[.65cm]
 \includegraphics[width=.15\textwidth]{ptit-logo.jpg}\\[.55cm]
 {\color{ptitblue}\rule{.86\textwidth}{1.4pt}}\\[.25cm]
 {\LARGE\bfseries PHÂN TÍCH VÀ DỰ ĐOÁN GIÁ\\BẤT ĐỘNG SẢN TẠI HÀ NỘI\\KẾT HỢP MACHINE LEARNING}\\[.3cm]
-{\color{ptitblue}\rule{.86\textwidth}{1.4pt}}\\[.65cm]
+{\color{ptitblue}\rule{.86\textwidth}{1.4pt}}
+\end{minipage}\\[.65cm]
 \vfill
 {\Large Báo cáo bài tập lớn Python}\\[.45cm]
 \begin{tabular}{rl}
 \textbf{Nhóm:} & Nhóm 01 - Lập trình Python\\
-\textbf{Thành viên:} & \begin{tabular}[t]{l}Tô Thành Công — B25DCTC024\\Bùi Quốc Anh — B25DCTC004\\Đặng Đức Anh — B25DCTC013\\Trần Hoàng Dũng — B25DCTC030\\Dương Minh Tuấn — B25DCTC132\end{tabular}\\
+\textbf{Thành viên:} & \begin{tabular}[t]{@{}l@{\hspace{1.2em}}l@{}}Tô Thành Công & B25DCTC024\\Bùi Quốc Anh & B25DCTC004\\Đặng Đức Anh & B25DCTC013\\Trần Hoàng Dũng & B25DCTC030\\Dương Minh Tuấn & B25DCTC132\end{tabular}\\
 \textbf{GVHD:} & Lương Ngọc Sơn\\
 \end{tabular}
 \vfill {\large Hà Nội, 2026}
@@ -82,13 +85,13 @@ Giá và diện tích có độ lệch phải rõ rệt. Vì vậy, nhóm sử d
 
 \begin{figure}[H]\centering
 \includegraphics[width=.78\linewidth]{figures/E02_log_scale.png}
-\caption{Phân phối giá trên thang log10.}\end{figure}
+\caption{Phân phối diện tích, giá rao bán và đơn giá trên thang log10.}\end{figure}
 
 \begin{figure}[H]\centering
 \includegraphics[width=.78\linewidth]{figures/E03_property_type_medians.png}
 \caption{Giá trung vị theo nhóm loại hình bất động sản.}\end{figure}
 
-So sánh theo loại hình cho thấy căn hộ có mức giá và sai số thấp hơn tương đối, trong khi đất và shophouse có độ phân tán lớn hơn. Đây là lý do \texttt{property\_type\_name} được giữ trong pipeline mô hình.
+So sánh theo loại hình cho thấy căn hộ có mức giá và độ phân tán thấp hơn tương đối, trong khi đất và shophouse có độ phân tán lớn hơn. Đây là lý do \texttt{property\_type\_name} được giữ trong pipeline mô hình.
 \newpage
 
 % PAGE 4
@@ -111,7 +114,7 @@ Nhóm so sánh baseline median theo loại hình, Ridge Regression, Random Fores
 \section{Kết quả mô hình}
 \begin{table}[H]\centering\scriptsize
 \caption{So sánh mô hình trên Group Split}\begin{tabular}{lrrrrr}\toprule
-Mô hình & MAE & RMSE & MedAE & $R^2$ & MAPE\\\midrule
+Mô hình & \shortstack{MAE\\{\scriptsize(triệu VNĐ)}} & \shortstack{RMSE\\{\scriptsize(triệu VNĐ)}} & \shortstack{MedAE\\{\scriptsize(triệu VNĐ)}} & $R^2$ & \shortstack{MAPE\\{\scriptsize(\%)}}\\\midrule
 \textbf{LightGBM} & \textbf{4.011} & \textbf{11.679} & \textbf{1.346} & \textbf{0,800} & \textbf{22,5\%}\\
 HistGradientBoosting & 4.171 & 12.217 & 1.397 & 0,781 & 23,2\%\\
 XGBoost & 4.199 & 12.150 & 1.468 & 0,783 & 23,2\%\\
@@ -120,7 +123,9 @@ Ridge Regression & 6.857 & 22.315 & 2.489 & 0,269 & 38,5\%\\
 Baseline median & 9.563 & 25.466 & 4.000 & 0,048 & 55,9\%\\\bottomrule
 \end{tabular}\end{table}
 
-\fig{.82}{02_model_comparison.png}
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{figures/02_model_comparison.png}
+\caption{So sánh MAE giữa các mô hình trên Group Split (triệu VNĐ).}\end{figure}
 
 LightGBM có MAE, RMSE và MedAE thấp nhất, đồng thời $R^2$ cao nhất. Chênh lệch giữa LightGBM và baseline cho thấy các đặc trưng về diện tích, loại hình và vị trí mang thông tin dự báo đáng kể. Tuy nhiên, RMSE lớn hơn MAE nhiều lần, phản ánh ảnh hưởng của một số tin có giá trị rất lớn hoặc đặc trưng thiếu.
 \newpage
@@ -130,7 +135,9 @@ LightGBM có MAE, RMSE và MedAE thấp nhất, đồng thời $R^2$ cao nhất.
 \subsection{Sai số theo thời gian}
 Time Split cho kết quả: train năm 2025 có 630.403 dòng, test năm 2026 có 149.950 dòng; MAE 4.769 triệu VNĐ, RMSE 13.556 triệu VNĐ, MedAE 1.705 triệu VNĐ, $R^2=0{,}790$ và MAPE 23,5\%. Kết quả thấp hơn nhẹ so với Group Split, phù hợp với khó khăn khi dự báo giai đoạn mới.
 
-\fig{.78}{05_time_split.png}
+\begin{figure}[H]\centering
+\includegraphics[width=.78\linewidth]{figures/05_time_split.png}
+\caption{So sánh MAE giữa Group Split và Time Split (triệu VNĐ).}\end{figure}
 
 \subsection{Sai số theo phân khúc}
 Căn hộ có MAE 1.448 triệu VNĐ và $R^2=0{,}696$; nhà có MAE 4.584 triệu VNĐ và $R^2=0{,}820$; đất có MAE 3.073 triệu VNĐ và $R^2=0{,}810$; shophouse có MAE 12.273 triệu VNĐ và $R^2=0{,}342$. Shophouse có ít quan sát và tính dị biệt cao nên khó dự báo hơn.
@@ -156,6 +163,7 @@ Không đưa file dữ liệu 3,2 GB vào gói nộp. Người dùng có thể c
 \item Kaggle, ``Vietnam Real Estate'', dataset ref: \texttt{locngodev/vietnam-real-estate}.
 \item Pedregosa et al., ``Scikit-learn: Machine Learning in Python'', JMLR, 2011.
 \item Ke et al., ``LightGBM: A Highly Efficient Gradient Boosting Decision Tree'', NeurIPS, 2017.
+\item Lundberg \& Lee, ``A Unified Approach to Interpreting Model Predictions'', NeurIPS, 2017.
 \end{enumerate}
 
 \vfill\begin{center}\textit{Nhóm 01 - Lập trình Python · Hà Nội, 2026}\end{center}
