@@ -75,8 +75,16 @@ Tập dùng fit mô hình & 780.353 & 99,59\%\\\bottomrule
 
 Tập 783.600 dòng được giữ cho mô tả thị trường. Bộ lọc cực đoan chỉ áp dụng cho population dùng huấn luyện, tránh thay đổi bằng chứng EDA. Median được ưu tiên trong thống kê mô tả do phân phối giá lệch phải mạnh.
 
-\section{Câu hỏi nghiên cứu}
-(i) Đặc trưng nào liên quan mạnh nhất đến giá rao bán? (ii) Mô hình phi tuyến có cải thiện so với baseline và Ridge không? (iii) Kết quả có duy trì khi chia theo nhóm tin đăng và theo thời gian không?
+\section{Câu hỏi phân tích}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item Dữ liệu thiếu tập trung ở những trường nào và khác biệt ra sao giữa các loại hình?
+\item Giá rao bán, diện tích và đơn giá/m$^2$ lệch phải và có ngoại lệ ở mức nào?
+\item Nguồn cung, giá trung vị và đơn giá/m$^2$ chênh lệch ra sao giữa 5 phân khúc?
+\item Mật độ tin và mặt bằng giá phân hóa thế nào giữa nội thành và ngoại thành?
+\item Diện tích, số phòng, mặt tiền tương quan ra sao với giá và đơn giá?
+\item Mô hình cây cải thiện bao nhiêu so với baseline và Ridge; sai số theo phân khúc thế nào?
+\item Kết quả có ổn định khi dự báo 2026 từ dữ liệu 2025, và đặc trưng nào chi phối nhất theo Tree SHAP?
+\end{enumerate}
 \newpage
 
 % PAGE 3
