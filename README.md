@@ -42,7 +42,7 @@ uv pip install --python .venv/bin/python -r requirements.txt
 .
 ├── README.md                  # file này
 ├── requirements.txt           # phiên bản thư viện đã chạy
-├── BANG_PHAN_CONG.md          # bảng phân công công việc
+├── BANG_PHAN_CONG.pdf         # bảng phân công công việc
 ├── notebooks/
 │   ├── kaggle_hanoi_all_property_types.ipynb   # notebook chính chạy trên Kaggle
 │   └── kaggle_vietnam_house_price.ipynb        # notebook khảo sát ban đầu
