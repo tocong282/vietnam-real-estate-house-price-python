@@ -59,9 +59,10 @@ uv pip install --python .venv/bin/python -r requirements.txt
 │   ├── train.py               # baseline tối thiểu
 │   └── check.py               # kiểm tra rò rỉ và target
 ├── results/                   # bảng kết quả CSV
+├── BAO_CAO_NHOM01_5_8_TRANG.pdf  # báo cáo 7 trang
 └── report/
-    ├── main.pdf               # báo cáo
     ├── main.tex               # nguồn LaTeX
+    ├── ptit-logo.jpg          # logo bìa
     └── figures/               # biểu đồ trong báo cáo
 ```
 
