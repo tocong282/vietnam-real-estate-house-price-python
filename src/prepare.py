@@ -1,4 +1,4 @@
-"""Extract Hanoi house listings in chunks; leave fitted preprocessing to train.py."""
+"""Extract Hanoi house listings in chunks; leave preprocessing to ML pipeline."""
 import argparse
 import hashlib
 import json

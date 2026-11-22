@@ -33,7 +33,7 @@ Chạy local (nếu đã tải CSV):
 ```bash
 uv venv .venv --python 3.12
 uv pip install --python .venv/bin/python -r requirements.txt
-.venv/bin/python prepare.py --raw data/raw_data_all.csv --out data/clean.parquet
+.venv/bin/python src/prepare.py --raw data/raw_data_all.csv --out data/clean.parquet
 ```
 
 ## 2. Cấu trúc gói nộp
@@ -55,8 +55,7 @@ uv pip install --python .venv/bin/python -r requirements.txt
 │   ├── ml_pipeline.py         # so sánh 6 mô hình, Group Split
 │   ├── tune_ml.py             # tuning LightGBM
 │   ├── final_eval.py          # đánh giá cuối, phân khúc, Time Split
-│   ├── enhance_eval.py        # SHAP, hình đánh giá
-│   ├── train.py               # baseline tối thiểu
+│   ├── enhance_eval.py        # Tree SHAP, hình đánh giá
 │   └── check.py               # kiểm tra rò rỉ và target
 ├── results/                   # bảng kết quả CSV
 ├── BAO_CAO_NHOM01_5_8_TRANG.pdf  # báo cáo 7 trang
