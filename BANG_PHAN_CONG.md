@@ -75,11 +75,7 @@
 | ML04 | Kiểm tra rò rỉ dữ liệu toàn bộ khâu mô hình | Báo cáo kiểm soát leakage |
 | ML05 | Gửi metrics và kết luận ML | `metrics.csv`, `metrics_by_property_type.csv` |
 
-## 3. Ghi chú
-
-- Tỷ lệ tính theo số nhiệm vụ đảm nhận trên tổng 33 nhiệm vụ.
-- Toàn bộ 33 nhiệm vụ đã hoàn thành; sản phẩm tương ứng nằm trong gói nộp.
-- Mọi thành viên tham gia kiểm tra chéo kết quả trước khi nộp.
+## 3. Chữ ký
 
 | Họ và tên | Chữ ký |
 |---|---|
